@@ -1,5 +1,8 @@
 #include<windows.h>
 #include <GL/glut.h>
+#include <math.h>
+
+#define PI 3.1415926535897932384626433832795
 
 void init(void)
 {
@@ -46,14 +49,45 @@ void drawShapes(void)
 	glVertex2i(50, 250);
 	glVertex2i(350, 250);
 
+	glEnd();
+	//Semicircle roof
+	glBegin(GL_LINES);
+	glColor3f(0.0, 0.0, 1.0);
+	double radius = 80.0;
+	double ori_x = 200.0;                         // the origin or center of circle
+	double ori_y = 250.0;
+	for (int i = 0; i <= 300; i++) {
+		double angle = PI * i / 300;
+		double x = cos(angle) * radius;
+		double y = sin(angle) * radius;
+		glVertex2d(ori_x + x, ori_y + y);
+	}
+	glEnd();
+	//door
+	glColor3f(0.5f, 1.0f, 0.0f);
+	glBegin(GL_LINES);
+	//left
 
+	glVertex2i(170, 150);
+	glVertex2i(170, 50);
 
+	//top
+	glVertex2i(170, 150);
+	glVertex2i(230, 150);
 
-
-
-
+	//right
+	glVertex2i(230, 150);
+	glVertex2i(230, 50);
 
 	glEnd();
+
+	glPointSize(8);
+	glBegin(GL_POINTS);
+	glColor3f(0.5, 1.0, 0);
+	glVertex2f(225, 100);
+	glEnd();
+
+
 
 	glFlush();	// Process all OpenGL routines
 }
