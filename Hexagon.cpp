@@ -87,6 +87,8 @@ void drawShapes(void)
 	glVertex2f(225, 100);
 	glEnd();
 
+	
+
 
 
 	glFlush();	// Process all OpenGL routines
