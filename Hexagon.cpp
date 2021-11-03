@@ -51,7 +51,7 @@ void drawShapes(void)
 
 	glEnd();
 	//Semicircle roof
-	glBegin(GL_LINES);
+	glBegin(GL_LINE_LOOP);
 	glColor3f(0.0, 0.0, 1.0);
 	double radius = 80.0;
 	double ori_x = 200.0;                         // the origin or center of circle
