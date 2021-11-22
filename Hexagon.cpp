@@ -87,6 +87,39 @@ void drawShapes(void)
 	glVertex2f(225, 100);
 	glEnd();
 
+	//Moon
+	int triangleAmount = 40;
+	GLfloat twicePi = 2.0f * PI;
+
+	glColor3ub(255, 255, 0);
+	float a = 0.55f;
+	float b = 0.75f;
+	float c = 0.2f;
+
+	glBegin(GL_TRIANGLE_FAN);
+	glVertex2f(a, b);
+	for (int i = 0; i <= triangleAmount; i++)
+	{
+		glVertex2f(a + (c * cos(i * cos(i * twicePi / triangleAmount))),
+			b + (c * sin(i * twicePi / triangleAmount)));
+	}
+	glEnd();
+
+	//Second circle
+	float d = 0.60f;
+	float e = 0.80f;
+
+	glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(0, 0, 0);
+	glVertex2f(d, e);
+
+	for (int i = 0; i <= triangleAmount; i++)
+	{
+		glVertex2f(e + (c * cos(i * cos(i * twicePi / triangleAmount))),
+			e + (c * sin(i * twicePi / triangleAmount)));
+	}
+	glEnd();
+
 	
 
 
